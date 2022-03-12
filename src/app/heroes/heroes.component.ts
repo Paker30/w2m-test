@@ -14,11 +14,14 @@ export class HeroesComponent implements OnInit {
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
-    this.getHeroes();
-  }
-
-  getHeroes(): void {
     this.heroService.getHeroes()
         .subscribe(heroes => this.heroes = heroes);
+  }
+
+  delete(id: string): void {
+    this.heroService.delete(id)
+      .subscribe(() => {
+        this.heroes = this.heroes.filter((hero) => hero.id !== id);
+      });
   }
 }
