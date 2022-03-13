@@ -39,6 +39,6 @@ export class HeroService {
   }
 
   update(hero: Hero): Observable<Hero> {
-    return this.http.put<Hero>(`http://localhost:3000/${this.heroesUrl}`, hero);
+    return this.http.put<Hero>(`http://localhost:3000/${this.heroesUrl}/${hero.id}`, hero);
   }
 }

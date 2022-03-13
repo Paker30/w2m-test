@@ -10,7 +10,7 @@
     <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero.id | slice:-4}}</span> {{hero.name}}
     </a>
-    <button>Edit</button>
+    <button routerLink="/update/{{hero.id}}" [state]="{ data: hero}">Edit</button>
     <button (click)="delete(hero.id)">Delete</button>
   </li>
 </ul>

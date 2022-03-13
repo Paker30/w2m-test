@@ -7,7 +7,7 @@ import { HeroService } from '../hero.service';
   templateUrl: './hero-form.component.html',
   styleUrls: ['./hero-form.component.css']
 })
-export class HeroFormComponent {
+export class HeroFormComponent implements OnInit {
   model = new Hero('', '', '', '');
 
   submitted = false;
@@ -16,12 +16,25 @@ export class HeroFormComponent {
     private heroService: HeroService
   ) { }
 
+  ngOnInit(): void {
+    const hero = history.state.data;
+    if (hero) {
+      this.model.id = hero.id;
+      this.model.name = hero.name;
+      this.model.home = hero.home;
+      this.model.phone = hero.phone;
+    }
+  }
+
   onSubmit() {
-    this.heroService.create(this.model)
-    .subscribe((hero) => {
-      this.model = hero;
-      this.submitted = true;
-    });
+    const submit$ = this.model.id
+      ? this.heroService.update(this.model)
+      : this.heroService.create(this.model);
+    submit$
+      .subscribe((hero) => {
+        this.model = hero;
+        this.submitted = true;
+      });
   }
 
 }

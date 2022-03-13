@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'add', component: HeroFormComponent }
+  { path: 'add', component: HeroFormComponent },
+  { path: 'update/:id', component: HeroFormComponent },
 ];
 
 @NgModule({
