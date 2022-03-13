@@ -17,7 +17,7 @@ export class HeroesComponent implements OnInit, AfterViewInit {
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
-    this.heroService.getHeroes()
+    this.heroService.getAll()
       .subscribe(heroes => {
         this.heroes = heroes;
         this.filteredHeroes = heroes;

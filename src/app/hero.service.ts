@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Hero } from './hero';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 
 const heroes = [
@@ -21,12 +21,22 @@ export class HeroService {
     private http: HttpClient
   ) { }
 
-  getHeroes(): Observable<Hero[]> {
+  getAll(): Observable<Hero[]> {
     return this.http.get<Hero[]>(`http://localhost:3000/${this.heroesUrl}`);
   }
 
-  getHero(id: string): Observable<Hero> {
+  get(id: string): Observable<Hero> {
     return this.http.get<Hero>(`http://localhost:3000/${this.heroesUrl}/${id}`);
+  }
+
+  getByNameTerm(term: string): Observable<Hero[]> {
+    return this.http.get<Hero[]>(`http://localhost:3000/${this.heroesUrl}`)
+    .pipe(
+      map((heroes) => {
+        const regex = new RegExp(`${term}`, 'gm');
+        return heroes.filter(({ name }) => name.match(regex));
+      })
+    );
   }
 
   delete(id: string): Observable<Hero> {
