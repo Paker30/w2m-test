@@ -1,0 +1,80 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Hero Form</h1>
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          required
+          [(ngModel)]="model.name"
+          name="name"
+          #name="ngModel"
+        >
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Name is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="home">Home</label>
+        <input
+          type="text"
+          class="form-control"
+          id="home"
+          required
+          [(ngModel)]="model.home"
+          name="home"
+          #home="ngModel"
+        >
+        <div [hidden]="home.valid || home.pristine"
+             class="alert alert-danger">
+          Home is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input
+          type="text"
+          class="form-control"
+          id="phone"
+          required
+          [(ngModel)]="model.phone"
+          name="phone"
+          #phone="ngModel"
+        >
+        <div [hidden]="phone.valid || phone.pristine"
+               class="alert alert-danger">
+            Phone is required
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">ID</div>
+      <div class="col-xs-9">{{ model.id }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Name</div>
+      <div class="col-xs-9">{{ model.name }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Home</div>
+      <div class="col-xs-9">{{ model.home }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Phone</div>
+      <div class="col-xs-9">{{ model.phone }}</div>
+    </div>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
+</div>

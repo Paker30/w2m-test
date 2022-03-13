@@ -1,6 +1,8 @@
-export interface Hero {
-  id: string;
-  name: string;
-  home: string;
-  phone: string;
+export class Hero {
+  constructor(
+  public id: string,
+  public name: string,
+  public home: string,
+  public phone: string
+  ) { }
 }

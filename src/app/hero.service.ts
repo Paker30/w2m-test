@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Hero } from './hero';
 import { Observable } from 'rxjs';
+import { v4 as uuidv4 } from 'uuid';
 
 const heroes = [
   { "id": "1", "name": "carpanta", "home": "calle del bocata 13", "phone": "123-123" },
@@ -30,5 +31,10 @@ export class HeroService {
 
   delete(id: string): Observable<Hero> {
     return this.http.delete<Hero>(`http://localhost:3000/${this.heroesUrl}/${id}`);
+  }
+
+  create(hero: Hero): Observable<Hero> {
+    hero.id = uuidv4();
+    return this.http.post<Hero>(`http://localhost:3000/${this.heroesUrl}`, hero);
   }
 }
