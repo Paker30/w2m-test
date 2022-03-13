@@ -1,6 +1,10 @@
-<h2>Top Heroes</h2>
-<div class="heroes-menu">
-  <a *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}">
+<p>
+  <mat-toolbar>
+    <span>Top Heroes!</span>
+  </mat-toolbar>
+</p>
+<mat-nav-list>
+  <a mat-list-item *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}">
     {{hero.name}}
   </a>
-</div>
+</mat-nav-list>

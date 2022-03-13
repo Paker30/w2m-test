@@ -1,16 +1,26 @@
-<h2>My Heroes</h2>
-<div>
-  <a routerLink="/add" type="button">
+<p>
+  <mat-toolbar>
+    <span>Hero list!</span>
+  </mat-toolbar>
+</p>
+<div class="search-bar">
+  <button routerLink="/add" mat-raised-button color="primary" aria-label="Add a new hero">
     <span>Add</span>
-  </a>
-  <input type="text" #searchHero placeholder="search the hero">
+  </button>
+  <mat-form-field>
+    <input matInput type="text" #searchHero placeholder="search the hero">
+  </mat-form-field>
 </div>
-<ul class="heroes">
-  <li *ngFor="let hero of filteredHeroes">
-    <a routerLink="/detail/{{hero.id}}">
+<mat-nav-list>
+  <mat-list-item *ngFor="let hero of filteredHeroes">
+    <a matLine routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero.id | slice:-4}}</span> {{hero.name}}
     </a>
-    <button routerLink="/update/{{hero.id}}" [state]="{ data: hero}">Edit</button>
-    <button (click)="delete(hero.id)">Delete</button>
-  </li>
-</ul>
+    <button mat-icon-button routerLink="/update/{{hero.id}}" [state]="{ data: hero}">
+      <mat-icon aria-hidden="false" aria-label="Edit hero">edit</mat-icon>
+    </button>
+    <button mat-icon-button (click)="delete(hero.id)">
+      <mat-icon aria-hidden="false" aria-label="Delete hero">delete</mat-icon>
+    </button>
+  </mat-list-item>
+</mat-nav-list>

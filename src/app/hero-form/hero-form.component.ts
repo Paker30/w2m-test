@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 
@@ -13,7 +14,7 @@ export class HeroFormComponent implements OnInit {
   submitted = false;
 
   constructor(
-    private heroService: HeroService
+    private heroService: HeroService, private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +35,7 @@ export class HeroFormComponent implements OnInit {
       .subscribe((hero) => {
         this.model = hero;
         this.submitted = true;
+        this.router.navigateByUrl('/heroes');
       });
   }
 

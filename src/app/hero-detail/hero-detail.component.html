@@ -1,8 +1,20 @@
-<div *ngIf="hero">
-  <h2>{{hero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
-  <div><span>home: </span>{{hero.home}}</div>
-  <div><span>phone: </span>{{hero.id}}phone>
-  </div>
-  <button type="button" (click)="goBack()">go back</button>
-</div>
+<p>
+  <mat-toolbar>
+    <span>Hero details!</span>
+  </mat-toolbar>
+</p>
+<mat-card *ngIf="hero">
+  <mat-card-title>
+    {{hero.name | uppercase}}
+  </mat-card-title>
+  <mat-card-content class="content">
+    <div><span>id: </span>{{hero.id}}</div>
+    <div><span>home: </span>{{hero.home}}</div>
+    <div><span>phone: </span>{{hero.phone}}phone></div>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button (click)="goBack()">
+      <mat-icon aria-label="BAck to hero list">arrow_back</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

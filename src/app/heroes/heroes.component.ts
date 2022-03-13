@@ -45,6 +45,7 @@ export class HeroesComponent implements OnInit, AfterViewInit {
     this.heroService.delete(id)
       .subscribe(() => {
         this.heroes = this.heroes.filter((hero) => hero.id !== id);
+        this.filteredHeroes = this.heroes.filter((hero) => hero.id !== id);
       });
   }
 }
