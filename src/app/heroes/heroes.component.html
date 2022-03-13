@@ -3,9 +3,10 @@
   <a routerLink="/add" type="button">
     <span>Add</span>
   </a>
+  <input type="text" #searchHero placeholder="search the hero">
 </div>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes">
+  <li *ngFor="let hero of filteredHeroes">
     <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero.id | slice:-4}}</span> {{hero.name}}
     </a>

@@ -37,4 +37,8 @@ export class HeroService {
     hero.id = uuidv4();
     return this.http.post<Hero>(`http://localhost:3000/${this.heroesUrl}`, hero);
   }
+
+  update(hero: Hero): Observable<Hero> {
+    return this.http.put<Hero>(`http://localhost:3000/${this.heroesUrl}`, hero);
+  }
 }

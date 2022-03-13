@@ -11,18 +11,6 @@
       "name": "anacleto",
       "home": "classified info",
       "phone": "999-111"
-    },
-    {
-      "id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6f",
-      "name": "batman",
-      "home": "big scary mansion",
-      "phone": "777-333"
-    },
-    {
-      "id": "f38235e6-0d34-4b9d-8bd2-7a56a69f0d69",
-      "name": "mortadelo",
-      "home": "tia",
-      "phone": "123"
     }
   ]
 }
