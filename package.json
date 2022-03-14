@@ -5,6 +5,7 @@
     "ng": "ng",
     "build": "ng build",
     "dev-server": "json-server --watch db.json",
+    "docker": "docker build -t w2m:${npm_package_version} -t w2m:latest .",
     "start": "ng serve",
     "test": "ng test",
     "watch": "ng build --watch --configuration development"

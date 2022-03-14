@@ -1,27 +1,31 @@
 # W2mTest
 
+This is the code solution to W2M test.
+
+## Start the project
+
+In order to start the project, first you must install all the modules
+
+> `npm i`
+
+After you need to start both the fake backend and the front
+
+> `npm run dev-server`
+
+> `npm start`
+
+Now browse to `http://localhost:3000` and you should see the app running.
+
+## Dockerize the project
+
+If you want to run it from a docker image, you need to create the image
+
+> `npm run docker`
+
+And run the image
+
+> `docker run -p 80:80 w2m-test:latest`
+
+Now browse to `http://localhost:3000` and you should see the app running.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
