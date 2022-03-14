@@ -24,8 +24,8 @@ If you want to run it from a docker image, you need to create the image
 
 And run the image
 
-> `docker run -p 80:80 w2m-test:latest`
+> `docker run -p 8080:80 w2m-test:latest`
 
-Now browse to `http://localhost:3000` and you should see the app running.
+Now browse to `http://localhost:8080` and you should see the app running.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.

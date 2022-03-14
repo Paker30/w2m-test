@@ -13,6 +13,6 @@ COPY . /app
 
 RUN npm run build --prod
 
-FROM nginx:1.17.1-alpine
+FROM nginx:alpine
 
 COPY --from=build-step /app/dist/w2m-test /usr/share/nginx/html
